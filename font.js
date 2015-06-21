@@ -7,7 +7,9 @@ exports.locate = function(load) {
 exports.fetch = function(load) {
   return new Promise(function(resolve, reject) {
     var fontName = load.address.split(" ")[0],
-        params = load.address.substr(fontName.length + 1).trim().split(","),
+        params = load.address.substr(fontName.length + 1).split(",").map(function(s) {
+          return s.trim();
+        }),
         font = {},
         config = {
           active: function() { resolve("") },
