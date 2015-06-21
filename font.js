@@ -1,7 +1,7 @@
 var WebFont = require("webfont");
 
 exports.locate = function(load) {
-  return load.name;
+  return load.name.match(/[^/]*$/)[0].replace(/%20/g, ' ');
 }
 
 exports.fetch = function(load) {
